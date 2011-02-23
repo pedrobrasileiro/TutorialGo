@@ -62,12 +62,11 @@ func (file *File) Write(b []byte) (ret int, err os.Error) {
 		return -1, os.EINVAL
         }
         r, e := syscall.Write(file.fd, b)
-		if e != 0 {
+	if e != 0 {
 		err = os.Errno(e)
         }
         return int(r), err
 }
-  
 
 func (file *File) String() string {
 	return file.name
